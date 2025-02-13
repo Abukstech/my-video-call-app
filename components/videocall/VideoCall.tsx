@@ -8,12 +8,13 @@ import {
 import { VideoUI } from "./VideoUi";
   
   const apiKey = "mmhfdzb5evj2";
-  const userId = "Count_Doksss";
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVMJ9.eyJpc3MiOiJodHRwczovL3Byb250by5nZXRzdHJlYW0uaW8iLCJzdWIiOiJ1c2VyL0NvdW50X0Rvb2t1IiwidXNlcl9pZCI6IkNvdW50X0Rvb2t1IiwidmFsaWRpdHlfaW5fc2Vjb25kcyI6NjA0ODAwLCJpYXQiOjE3MzkzNzMzODUsImV4cCI6MTczOTk3ODE4NX0.PB3Oo8DDrFg9VnXEjhm3mISrr3ZKzV-07wNn7VzJsZQ";
-  const callId = "NX7wgsT31zDZ";
+  const userId = "Brakiss";
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3Byb250by5nZXRzdHJlYW0uaW8iLCJzdWIiOiJ1c2VyL0JyYWtpc3MiLCJ1c2VyX2lkIjoiQnJha2lzcyIsInZhbGlkaXR5X2luX3NlY29uZHMiOjYwNDgwMCwiaWF0IjoxNzM5NDM5MTkyLCJleHAiOjE3NDAwNDM5OTJ9.xrdHWHNAxkaR5N4FGaGqG7GAr6xYzuIk0heExdamKZA";
+
   const user: User = { id: userId };
-  
-  const client = new StreamVideoClient({ apiKey, user, token });
+  const callId = "NX7wgsT31zDZ";
+
+  const client = StreamVideoClient.getOrCreateInstance({ apiKey, user , token});
   const call = client.call("default", callId);
   call.join({ create: true });
   
