@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.odo_peter.myvideocallapp"
     },
     "web": {
       "bundler": "metro",
@@ -24,6 +25,14 @@
     },
     "plugins": [
       "expo-router",
+      "@stream-io/video-react-native-sdk",
+      [
+        "@config-plugins/react-native-webrtc",
+        {
+          "cameraPermission": "$(PRODUCT_NAME) requires camera access in order to capture and transmit video",
+          "microphonePermission": "$(PRODUCT_NAME) requires microphone access in order to capture and transmit audio"
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -33,28 +42,29 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "react-native-permissions",
-   "expo-build-properties",
-      {
-        "android": {
-          "minSdkVersion": 24
-        }
-      },
-
-   
-      "@stream-io/video-react-native-sdk",
       [
-        "@config-plugins/react-native-webrtc",
+        "expo-build-properties",
         {
-        
-          "cameraPermission": "$(PRODUCT_NAME) requires camera access in order to capture and transmit video",
-          "microphonePermission": "$(PRODUCT_NAME) requires microphone access in order to capture and transmit audio"
+          "android": {
+            "minSdkVersion": 24
+          },
+          "ios": {
+            "deploymentTarget": "15.1"
+          }
         }
       ]
-
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "759e990c-bfc8-4f26-9fa6-3f619b15eb74"
+      }
     }
   }
 }
+ 
