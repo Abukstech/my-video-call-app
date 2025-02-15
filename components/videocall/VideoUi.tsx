@@ -6,6 +6,11 @@ import {
 
   import { Button, View } from "react-native";
 
+  export type CallControlsComponentProps = {
+    onChatOpenHandler?: () => void;
+    onHangupCallHandler?: () => void;
+  };
+
 
 export const MyVideoButton = () => {
   const { useCameraState } = useCallStateHooks();

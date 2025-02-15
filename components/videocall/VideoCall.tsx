@@ -6,6 +6,9 @@ import {
   } from "@stream-io/video-react-native-sdk";
   import { useEffect, useState } from "react";
 import { VideoUI } from "./VideoUi";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { StyleSheet } from "react-native";
+import { ChatWrapper } from "../ChatWrapper";
   
   const apiKey = "mmhfdzb5evj2";
   const userId = "Brakiss";
@@ -20,10 +23,19 @@ import { VideoUI } from "./VideoUi";
   
   export default function App() {
     return (
+      <ChatWrapper>
+      <GestureHandlerRootView style={styles.container}>
       <StreamVideo client={client}>
         <StreamCall call={call}>
             <VideoUI/>
         </StreamCall>
       </StreamVideo>
-    );
+      </GestureHandlerRootView>
+      </ChatWrapper>
+    )
   }
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+    },
+  });
